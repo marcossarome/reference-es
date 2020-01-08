@@ -16,21 +16,22 @@ subCategories: [ "Control Structure" ]
 --
 
 [float]
-=== Description
-The `for` statement is used to repeat a block of statements enclosed in curly braces. An increment counter is usually used to increment and terminate the loop. The `for` statement is useful for any repetitive operation, and is often used in combination with arrays to operate on collections of data/pins.
+=== Descripción
+La sentencia `for` se usa para repetir un bloque de sentencias encerradas entre llaves. Un contador incremental se usa generalmente para incrementar y terminar el ciclo. La sentencia `for` es es útil para cualquier operación repetitiva, y a menudo se usa en combinación con matrices para operar en colecciones de datos / pines.
 [%hardbreaks]
 
 
 [float]
-=== Syntax
+=== Sintaxis
 [source,arduino]
 ----
-for (initialization; condition; increment) {
-	//statement(s);
+for (inicialización; condición; incremento) {
+	//sentencia(s);
 }
 ----
 
-The *initialization* happens first and exactly once. Each time through the loop, the *condition* is tested; if it's `true`, the statement block, and the *increment* is executed, then the *condition* is tested again. When the *condition* becomes `false`, the loop ends.
+===Parámetros
+La *initialization* sucede primero y sólo una vez. En cada ejecución del bucle, la *condición* se prueba, si es `true`, el bloque de sentencias y el *incremento* se ejecutan, luego la condición se prueba nuevamente. Cuando la *condición* se vuelve 'false', el ciclo termina.
 [%hardbreaks]
 
 --
@@ -44,15 +45,15 @@ The *initialization* happens first and exactly once. Each time through the loop,
 --
 
 [float]
-=== Example Code
+=== Código de ejemplo
 [source,arduino]
 ----
 // Dim an LED using a PWM pin
-int PWMpin = 10; // LED in series with 470 ohm resistor on pin 10
+int PWMpin = 10; // Un LED en serie con una resistencia de 470 ohm en el pin 10.
 
 void setup()
 {
-  // no setup needed
+  // no se necesita setup
 }
 
 void loop()
@@ -66,11 +67,11 @@ void loop()
 [%hardbreaks]
 
 [float]
-=== Notes and Warnings
-The C `for` loop is much more flexible than `for` loops found in some other computer languages, including BASIC. Any or all of the three header elements may be omitted, although the semicolons are required. Also the statements for initialization, condition, and increment can be any valid C statements with unrelated variables, and use any C datatypes including floats. These types of unusual `for` statements may provide solutions to some rare programming problems.
+=== Notas y advertencias
+En C `for` loop es mucho más flexible que los bucles `for` que se encuentran en otros lenguajes de computadora, incluido BASIC. Cualquiera o todos los tres elementos de encabezado pueden omitirse, aunque se requieren los puntos y comas. Además, las declaraciones para la inicialización, la condición y el incremento pueden ser declaraciones válidas de C con variables no relacionadas y utilizar cualquier tipo de datos de C,  incluidos los flotantes. statements with unrelated variables, and use any C datatypes including floats. Este tipo de intrucciones `for` inusuales pueden proporcionar soluciones a algunos problemas de programación poco comunes.
 [%hardbreaks]
 
-For example, using a multiplication in the increment line will generate a logarithmic progression:
+Por ejemplo, usar una multiplicación en la línea de incremento generará una progresión logarítmica:
 
 [source,arduino]
 ----
@@ -79,10 +80,10 @@ println(x);
 }
 ----
 
-Generates: 2,3,4,6,9,13,19,28,42,63,94
+Genera: 2,3,4,6,9,13,19,28,42,63,94
 [%hardbreaks]
 
-Another example, fade an LED up and down with one `for` loop:
+Otro ejemplo, desvanenecer y encender un LED con un ciclo `for`:
 
 [source,arduino]
 ----
@@ -91,7 +92,7 @@ void loop()
    int x = 1;
    for (int i = 0; i > -1; i = i + x){
       analogWrite(PWMpin, i);
-      if (i == 255) x = -1;             // switch direction at peak
+      if (i == 255) x = -1;             // Cambia la dirección en los extremos
       delay(10);
    }
 }
